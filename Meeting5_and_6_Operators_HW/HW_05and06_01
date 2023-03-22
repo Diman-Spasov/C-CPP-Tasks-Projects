@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main()
+{
+    int iX = 13;
+    int iY = 44;
+    float iResult;
+    iResult = iX - iY;
+    printf("%d - %d = %f \n", iX, iY, iResult);
+    iResult = iY / iX;
+    printf("%d / %d = %f \n", iY, iX, iResult);
+    iResult = iY % iX;
+    printf("%d / %d Remainder: %f\n", iY, iX, iResult);
+    return 0;
+}
