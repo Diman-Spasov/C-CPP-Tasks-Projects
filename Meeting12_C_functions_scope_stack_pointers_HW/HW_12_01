@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int i, num, range;
+    printf("Enter a number: \n");
+    scanf("%d", &num);
+    printf("Enter the range: \n");
+    scanf("%d", &range);
+    for (i = 1; i <= range; i++)
+    {
+        printf("%d x %d = %d\n", num, i, num * i);
+    }
+    getch();
+    return 0;
+}
