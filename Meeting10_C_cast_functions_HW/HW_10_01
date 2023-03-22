@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+float areaOfcircle(float radius_circle);
+
+int main() {
+    float radius;
+
+    printf("Enter the radius of circle in cm: ");
+    scanf("%f", &radius);
+    printf("Area of circle : %.2f cm", areaOfcircle(radius));
+
+    return 0;
+}
+float areaOfcircle(float radius_circle){
+    float area_circle;
+    area_circle = 3.14 * radius_circle * radius_circle;
+
+    return area_circle;
+}
