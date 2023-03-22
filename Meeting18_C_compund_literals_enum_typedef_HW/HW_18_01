@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX_SIZE 64
+
+
+typedef const enum AnimalType{ Herbivore, Carnivore, Omnivore} AnimalType;
+
+typedef struct Animal
+{
+    char animalName[MAX_SIZE];
+    AnimalType animalType;
+    struct Animal* animalPtr;
+
+} animal;
+
+typedef animal* animal_ptr;
+
+void print(const animal_ptr arr, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        print("%s\n", arr[i].animalName);
+        print("%s\n", arr[i].animalType);
+    } 
+    
+}
+int main()
+{
+    struct Animal s1;
+    s1.animalName = "cat";
+    s1.animalType = "omnivore";
+
+    printf("Animal name: %s\n", s1.animalName);
+    printf("Animal type: %s\n", s1.animalType);
+    
+    return 0;
+}
