@@ -1,0 +1,29 @@
+// Напишете собствена версия на стандартната функция strcpy от string.h със
+// същия интерфейс и функционалност.
+// char* my_strcpy(char* dest, const char* src);
+
+#include <stdio.h>
+char* my_strcpy(char* dest, const char* src)
+{
+    int i;
+    
+    for (i = 0; src[i] != '\0'; i++)
+    {
+        dest[i] = src[i];
+    }
+
+    dest[i] = '\0';
+    
+    return dest;
+}
+int main()
+{   
+    char src[100], dest[100];
+
+    printf("Enter string src str: ");
+    fgets(src, sizeof(src), stdin);
+
+    my_strcpy(dest, src);
+
+    return 0;
+}
