@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+    float heigh = 12.5, width = 20.6, area, perimeter;
+
+    area = heigh * width;
+    perimeter = 2 * (heigh + width);
+    printf("Area of rectangle = %.2f cm ", area);
+    printf("\nPerimeter of rectangle = %.2f cm", perimeter);
+    return 0;
+}
