@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+
+void main()
+{
+    char c;
+    int countSymbols, countAlpha, countPunct;
+    do
+    {
+        c = getchar();
+        if (isalpha(c))
+        {
+            countAlpha++;
+        }
+        else if (ispunct(c))
+        {
+            countPunct++;
+        }
+        countSymbols++;
+    } while (c != EOF);
+
+    printf("Alpha: %d\nPunct: %d\nSymbols: %d", countAlpha, countPunct, countSymbols);
+    
+}
