@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() 
+{
+    char str[10] = "A93210";
+    unsigned int x = atoi(str);
+    printf("Converted string into: %d", x);
+    return 0;
+}
