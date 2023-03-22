@@ -1,0 +1,94 @@
+// Напишете програма, която събира две 4х4 матрици от float и записва резултата в
+// трета такава със същия размер. Събирането на матриците става като намерим
+// сумата на съответстващите елементи в тях. Данните за изходните матрици трябва
+// да бъдат въведени от потребителя. Разпечатайте трите матрици в конзолата.
+
+
+#include <stdio.h>
+
+void inputarray(int a[10][10], int row, int col);
+
+void sumarray(int m1[10][10], int m2[10][10], int m3[10][10], int row, int col);
+
+void displaysum(int m3[10][10], int m1[10][10], int m2[10][10], int row, int col);
+
+int main()
+
+{
+    int m1[10][10], m2[10][10], m3[10][10], row, col;
+
+    printf("\n Enter number of rows \n");
+    scanf("%d", &row);
+
+    printf("\n Enter number of columns \n");
+    scanf("%d", &col);
+
+    printf("\n Enter first array elements \n");
+    inputarray(m1, row, col);
+
+    printf("\n Enter second array elements \n");
+
+    inputarray(m2, row, col);
+    sumarray(m1, m2, m3, row, col);
+
+    printf("\n  Displaying all: \n");
+    displaysum(m3, m2, m1, row, col);
+}
+void inputarray(int a[10][10], int row, int col)
+{
+    int i, j;
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+}
+void sumarray(int m1[10][10], int m2[10][10], int m3[10][10], int row, int col)
+{
+    int i, j;
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            m3[i][j] = m1[i][j] + m2[i][j];
+        }
+    }
+}
+void displaysum(int m3[10][10], int m1[10][10], int m2[10][10], int row, int col)
+{
+    int i, j;
+    printf("First matrix: \n");
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            printf("%d ", m1[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Second matrix: \n");
+    printf("\n");
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            printf("%d ", m2[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Sum matrix: \n");3
+    printf("\n");
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col; j++)
+        {
+            printf("%d ", m3[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
