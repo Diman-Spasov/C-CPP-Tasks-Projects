@@ -1,0 +1,27 @@
+// Напишете програма, която чете стринг от стандартния вход и го извежда
+// на стандартния изход с функциите fgets и fputs.
+
+#include <stdio.h>
+#include <conio.h>
+// void main()
+// {
+//     FILE *fp;
+
+//     fp = fopen("Text_code.txt", "w");
+//     fputs("hello c programming", fp);
+
+//     fclose(fp);
+//     getch();
+// }
+
+void main()
+{
+    FILE *fp;
+    char text[300];
+
+    fp = fopen("Text_code.txt", "r");
+    printf("%s", fgets(text, 200, fp));
+
+    fclose(fp);
+    getch();
+}
