@@ -1,0 +1,17 @@
+// Дефинирайте
+// функция за отваряне на файл за писане , която приема ifstream и го връща като референция . Функцията трябва
+// да може да работи и с потоци в невалидно състояние трябва да се погрижи да направи състоянието валидно в случай че не
+// е)
+
+#include <fstream>
+
+std::ofstream &open_writable_file(std::ifstream &input_file)
+{
+    if (!input_file)
+    {
+        input_file.clear();                 
+        input_file.seekg(0, std::ios::beg); 
+    }
+    std::ofstream &output_file = dynamic_cast<std::ofstream &>(input_file);
+    return output_file;
+}
