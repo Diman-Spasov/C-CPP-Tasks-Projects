@@ -1,0 +1,25 @@
+// Напишете програма, която моли потребителя да въвежда в обратен ред цели числа във vector.
+// Принтирайте съдържанието на контейнера.
+
+#include <iostream>
+#include <vector>
+
+int main()
+{
+    std::vector<int> numbers;
+    int num;
+    std::cout << "Enter numbers in reverse order (type any non-integer to stop):\n";
+    while (std::cin >> num)
+    {
+        numbers.push_back(num);
+    }
+
+    std::cout << "The numbers in the vector are:\n";
+    for (auto it = numbers.rbegin(); it != numbers.rend(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
