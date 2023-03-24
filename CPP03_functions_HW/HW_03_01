@@ -1,0 +1,11 @@
+// Напишете функция, която взима std::string и го принтрира на подаден като аргумент файлов поток.
+// Overload
+// нете горната функция, така че да работи и със С strings.
+
+#include <fstream>
+#include <string>
+
+void printStringToFile(std::ofstream &file, const std::string &str)
+{
+    file << str;
+}
