@@ -1,0 +1,75 @@
+// Направете клас Employee, които наследява protected клас
+// Person със следните допълнителни членове:
+// Сметка;
+// Функция за добавяне в сметката;
+// Функция за изваждане от сметката;
+// Функция за принтиране на сметката;
+
+#include <iostream>
+#include <string>
+
+class Person
+{
+protected:
+    std::string name;
+    int age;
+
+public:
+    Person(const std::string &name, int age)
+        : name(name), age(age) {}
+};
+
+class Account
+{
+private:
+    double balance;
+
+public:
+    Account(double balance = 0)
+        : balance(balance) {}
+    void add(double amount)
+    {
+        balance += amount;
+    }
+    void withdraw(double amount)
+    {
+        balance -= amount;
+    }
+    double get_balance() const
+    {
+        return balance;
+    }
+};
+
+class Employee : protected Person
+{
+private:
+    Account account;
+
+public:
+    Employee(const std::string &name, int age, double initial_balance = 0)
+        : Person(name, age), account(initial_balance) {}
+    void add_to_account(double amount)
+    {
+        account.add(amount);
+    }
+    void withdraw_from_account(double amount)
+    {
+        account.withdraw(amount);
+    }
+    void print_bill()
+    {
+        std::cout << "Name: " << name << "\n"
+                  << "Age: " << age << "\n"
+                  << "Balance: " << account.get_balance() << std::endl;
+    }
+};
+
+int main()
+{
+    Employee emp("John", 35, 1000);
+    emp.add_to_account(500);
+    emp.withdraw_from_account(200);
+    emp.print_bill();
+    return 0;
+}
