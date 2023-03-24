@@ -1,0 +1,61 @@
+// Дефинирайте нов тип - динамичен масив(vector) с указатели към стрингове (към началото им - char*).
+// Дефинирайте следните интерфейсни функции (”my_” e примерно име на библиотека. Би могло и да е “str”,
+// тъй като е списък с char* елементи):
+// ● Функция за инициализация на членовете на масива:
+// void my_vector_init(my_vector v);
+// ● Приемлив интерфейс е и : void my_vector_init(my_vector *v);
+// ● Същото важи и за останалите функции.
+// ● Функция за проверка на това дали масивът е празен:
+// _Bool my_vector_empty(my_vector v);
+// ● Функция за премахване на всички елементи от масива:
+// void my_vector_clear(my_vector v);
+// ● Функция, която връща броя на елементите на масива:
+// size_t my_vector_size(my_vector v);
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct vector
+{
+    char **data;
+    int size;
+    int capacity;
+};
+
+void init(struct vector *v)
+{
+    v->size = 0;
+    v->capacity = 4;
+    v->data = (char **)malloc(v->capacity * sizeof(char *));
+}
+
+
+void free_vector(struct vector *v)
+{
+    int i;
+    for (i = 0; i < v->size; i++)
+    {
+        free(v->data[i]);
+    }
+    free(v->data);
+}
+
+bool my_vector_empty(struct vector *v)
+{
+    return v->size == 0;
+}
+
+void my_vector_clear(struct vector *v)
+{
+    for (int i = 0; i < v->size; i++)
+    {
+        free(v->data[i]);
+    }
+    v->size = 0;
+}
+
+size_t my_vector_size(struct vector *v)
+{
+    return v->size;
+}
