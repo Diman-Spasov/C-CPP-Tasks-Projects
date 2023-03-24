@@ -1,0 +1,68 @@
+// Реализирайте ваша имплементация на двоично дърво с цели числа.
+//   Дефинирайте функции за добавяне и премахване на върхове от дървото.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *left;
+    struct node *right;
+};
+
+struct node *newNode(int data)
+{
+    struct node *node = (struct node *)malloc(sizeof(struct node));
+    node->data = data;
+    node->left = NULL;
+    node->right = NULL;
+    return (node);
+}
+
+int main()
+{
+    struct node *root = newNode(1);
+    root->left = newNode(2);
+    root->right = newNode(3);
+    root->left->left = newNode(4);
+    root->left->right = newNode(5);
+    return 0;
+}
+
+struct node *deleteBranch(struct node *node, int data)
+{
+    if (node == NULL)
+        return node;
+    if (data < node->data)
+    {
+        node->left = deleteBranch(node->left, data);
+    }
+    else if (data > node->data)
+    {
+        node->right = deleteBranch(node->right, data);
+    }
+    else
+    {
+        if (node->left == NULL)
+        {
+            struct node *temp = node->right;
+            free(node);
+            return temp;
+        }
+        else if (node->right == NULL)
+        {
+            struct node *temp = node->left;
+            free(node);
+            return temp;
+        }
+        struct node *temp = node->right;
+        while (temp->left != NULL)
+        {
+            temp = temp->left;
+        }
+        node->data = temp->data;
+        node->right = deleteBranch(node->right, temp->data);
+    }
+    return node;
+}
