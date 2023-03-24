@@ -1,0 +1,32 @@
+// Дефинирайте базов абстрактен клас Product със всички данни, които са общи за всеки вид продукт (например: всеки продукт има
+// цена правим protected data member за целта в базовия клас + метод(и) за достъп)
+// Дефинирайте enum E_ProductType за всички видове продукти в scope
+// a на класа Product.
+// Дефинирайте pure virtual метод в базовия клас Product, който връща вида на продукта E_ProductType.
+// Всеки клас, който репрезентира конкретен продукт (не е абстрактен) трябва да override
+// не този pure virtual method от базовия кла с и
+// да връща константата, отговаряща на вида продукт, който репрезентира.
+
+enum E_ProductType
+{
+    PRODUCT_TYPE_UNKNOWN,
+    PRODUCT_TYPE_BOOK,
+    PRODUCT_TYPE_MOVIE,
+    PRODUCT_TYPE_ELECTRONICS
+};
+
+class Product
+{
+protected:
+    double price;
+
+public:
+    Product(double price) : price(price) {}
+
+    virtual E_ProductType getProductType() const = 0;
+
+    double getPrice() const
+    {
+        return price;
+    }
+};
