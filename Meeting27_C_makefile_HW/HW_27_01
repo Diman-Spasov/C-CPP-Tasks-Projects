@@ -1,0 +1,21 @@
+// Напишете програма hello_world.c и я компилирайте с makefile.
+
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Hello, World!\n");
+    return 0;
+}
+
+
+//run "make" in term. in the same dir with other file
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -std=c11
+
+hello_world: hello_world.c
+    $(CC) $(CFLAGS) -o hello_world hello_world.c
+
+clean:
+    rm -f hello_world
