@@ -1,0 +1,12 @@
+// Използвайте typedef за да дефинирате алтернативни имена на следните типове:
+// ● Функция, която не приема параметри и връща double
+// ● Функция, която приема два double параметъра и не връща нищо
+// ● Функция, която приема един int параметър и връща указател към функция, която не приема параметри и връща int
+// ● Функция, която взима три указателя към три различни типа функции - същите типове като на по-горните три типа функции (за
+// които вече имаме алтернативни имена)
+
+ypedef double(*double_func)(void);
+typedef void(*double_double_func)(double, double);
+typedef int(*int_func)(void);
+typedef int_func(*int_to_int_func)(int);
+typedef void(*triple_func)(double_func, double_double_func, int_to_int_func);
